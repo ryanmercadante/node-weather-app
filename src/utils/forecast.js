@@ -10,8 +10,8 @@ const forecast = (latitude, longitude, cb) => {
       cb('Unable to find location', undefined)
     } else {
       const { temperature, precipProbability } = body.currently
-      const { summary } = body.daily.data[0]
-      cb(undefined, `${summary} It is currently ${temperature} degrees out. There is a ${precipProbability}% chance of rain.`)
+      const { summary, temperatureHigh, temperatureLow } = body.daily.data[0]
+      cb(undefined, `${summary} The high for the day is ${temperatureHigh} and the low for the day is ${temperatureLow}. It is currently ${temperature} degrees out. There is a ${precipProbability}% chance of rain.`)
     }
   })
 }
